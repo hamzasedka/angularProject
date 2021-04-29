@@ -1,3 +1,6 @@
+import { NavComponent } from './../../projects/ui/src/lib/components/nav/nav.component';
+import { MaterialModule } from './../../projects/ui/src/lib/material.module';
+import { UiModule } from './../../projects/ui/src/lib/ui.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from 'projects/auth/src/lib/auth-routing.module';
@@ -10,6 +13,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +21,8 @@ import { AppComponent } from './app.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    UiModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,10 @@
       "auth": [
         "dist/auth/auth",
         "dist/auth"
+      ],
+      "ui": [
+        "dist/ui/ui",
+        "dist/ui"
       ]
     },
     "baseUrl": "./",

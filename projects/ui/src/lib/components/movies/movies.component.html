@@ -1,0 +1,33 @@
+
+<!--<div class="card">
+        <mat-card-content>
+          <div class="demo-tab-group" >
+            <h1>top rated movies</h1>
+
+            <div label="Najlepiej oceniane">
+              <div class="demo-tab-content" *ngFor="let movie of topRatedList; let i = index;">
+                <movie-card [movie]="movie"></movie-card>
+              </div>
+            </div>
+            <label label="Popularne">
+              <h1>popular movies</h1>
+              <div class="demo-tab-content" *ngFor="let movie of popularList; let i = index;">
+                <movie-card [movie]="movie"></movie-card>
+              </div>
+            </label>
+
+          </div>
+        </mat-card-content>
+      </-div>-->
+      <!------------------------------------------------------------------------>
+
+
+        <div class="crousal" style="height: 100vh;" >
+
+          <div class="demo-tab-content col-md-3"  *ngFor="let movie of popularList; let i = index;">
+            <movie-card [movie]="movie"></movie-card>
+
+          </div>
+
+        </div>
+
