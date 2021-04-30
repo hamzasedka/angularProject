@@ -10,7 +10,6 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AppRoutingModule } from './auth-routing.module';
-import { SignInSignUpComponent } from './components/sign-in-sign-up/sign-in-sign-up.component';
 
 
 
@@ -22,7 +21,6 @@ import { SignInSignUpComponent } from './components/sign-in-sign-up/sign-in-sign
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    SignInSignUpComponent
   ],
   providers:[],
   imports: [

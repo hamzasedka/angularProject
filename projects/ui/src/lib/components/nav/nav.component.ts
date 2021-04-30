@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { AuthService } from 'projects/auth/src/public-api';
 import {MoviesService} from '../../movies.service';
 @Component({
   selector: 'app-nav',
@@ -11,7 +12,7 @@ export class NavComponent implements OnInit {
 
   genres: Array<Object>;
 
-  constructor(private _moviesService: MoviesService) {
+  constructor(private authService: AuthService) {
 
 
 
@@ -20,7 +21,9 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
   }
-
+logout(){
+  this.authService.SignOut();
+}
 
 
 

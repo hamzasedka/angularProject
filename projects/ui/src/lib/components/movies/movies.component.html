@@ -22,12 +22,34 @@
       <!------------------------------------------------------------------------>
 
 
-        <div class="crousal" style="height: 100vh;" >
+      <hr>
 
-          <div class="demo-tab-content col-md-3"  *ngFor="let movie of popularList; let i = index;">
+      <h3 style="margin-left: 20px;">UpComming movies </h3>
+      <hr>
+      <div class="row">
+                <div class="demo-tab-content col-md-2"  *ngFor="let movie of upComming; let i = index;">
+
+                  <movie-card [movie]="movie"></movie-card>
+
+              </div>
+      </div>
+      <hr>
+<hr>
+
+<h3 style="margin-left: 20px;">Top Popular movies </h3>
+<hr>
+<div class="row">
+          <div class="demo-tab-content col-md-2"  *ngFor="let movie of popularList; let i = index;">
+
             <movie-card [movie]="movie"></movie-card>
 
-          </div>
-
         </div>
-
+</div>
+<hr>
+<h3 style="margin-left: 20px;">Top rated movies </h3>
+<hr>
+<div class="row">
+  <div class="demo-tab-content col-md-2" *ngFor="let movie of topRatedList; let i = index;">
+    <movie-card [movie]="movie"></movie-card>
+  </div>
+</div>

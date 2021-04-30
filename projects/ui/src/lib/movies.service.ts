@@ -1,3 +1,5 @@
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -8,7 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class MoviesService {
   apikey: string;
 
-  constructor(private http:HttpClient) {
+  constructor(
+    private http:HttpClient,
+    public afs: AngularFirestore,
+    public afAuth: AngularFireAuth,  ){
     this.apikey = 'api_key=fed69657ba4cc6e1078d2a6a95f51c8c';
 
 
@@ -51,7 +56,11 @@ export class MoviesService {
     return this.http.get('https://api.themoviedb.org/3/discover/movie?'+this.apikey+'&sort_by=vote_average.desc&page=' + page, )
 
   }
+  getLatestMovies() :Observable<any>{
 
+    return this.http.get('https://api.themoviedb.org/3/movie/latest?'+this.apikey )
+
+  }
   searchMovies(searchStr: string, option:string):Observable<any> {
 
     return this.http.get('https://api.themoviedb.org/3/search/movie?'+this.apikey+'&query='+searchStr )
@@ -146,4 +155,28 @@ export class MoviesService {
     return this.http.get('https://api.themoviedb.org/3/person/' + id + '/movie_credits?'+this.apikey )
 
   }
+
+  addMovieToFireBase(movie:any){
+    let uid= JSON.parse(localStorage.getItem('user')).uid;
+    this.afs.collection("users/"+uid+"/movies").add(movie)
+    .then(()=>console.log("movie added successfuy !!"))
+    .catch((error) => {
+      console.error("Error updating movie: ", error);
+      }
+    )};
+
+    getMovieToFireBase():Observable<any>{
+      let uid= JSON.parse(localStorage.getItem('user')).uid;
+    return this.afs.collection("users/"+uid+"/movies").valueChanges();
+
+
+      }
+
+      deleteMovie(id:string){
+        let uid= JSON.parse(localStorage.getItem('user')).uid;
+     let doc= this.afs.firestore
+      .collection("users/"+uid+"/movies")
+      .where('id','==',id).get();
+        doc.then(movies=>movies.forEach(movie=>movie.ref.delete()));
+      }
 }

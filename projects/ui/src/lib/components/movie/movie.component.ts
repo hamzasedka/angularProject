@@ -29,6 +29,7 @@ export class MovieComponent implements OnInit {
       const id = params['id'];
       this._moviesServices.getMovie(id).subscribe(movie => {
         this.movie = movie;
+
       });
       this._moviesServices.getMovieReviews(id).subscribe(res => {
         this.reviews = res.results;
@@ -56,6 +57,20 @@ export class MovieComponent implements OnInit {
         this.movies = res.results;
       });
     })
+
+
   }
+
+  addMovie(){
+   let moviee:string;
+    this.router.params.subscribe((params) => {
+      const id = params['id'];
+      this._moviesServices.getMovie(id).subscribe(movie => {
+        moviee = movie;
+
+      });
+    this._moviesServices.addMovieToFireBase(this.movie);
+  })
+}
 
 }

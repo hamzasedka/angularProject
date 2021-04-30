@@ -1,3 +1,5 @@
+import { favoritsComponent } from './components/favorits/favorits.component';
+
 import { MoviesComponent } from './components/movies/movies.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { SerieComponent } from './components/serie/serie.component';
@@ -40,6 +42,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     SerieComponent,
     UpcomingComponent,
     MoviesComponent,
+    favoritsComponent
 
 
 

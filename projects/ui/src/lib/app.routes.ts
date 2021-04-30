@@ -1,3 +1,4 @@
+import { favoritsComponent } from './components/favorits/favorits.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { Routes } from '@angular/router';
 import { MovieComponent } from './components/movie/movie.component';
@@ -21,4 +22,6 @@ export const appRoutes: Routes = [
     {path: 'search', component: SearchComponent},
     {path: 'filter', component: FilterComponent},
     {path: 'movies', component: MoviesComponent},
+    {path: 'favorits', component: favoritsComponent},
+
 ];

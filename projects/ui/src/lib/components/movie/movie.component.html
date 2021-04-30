@@ -5,6 +5,9 @@
         <p>
             <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">watch movie here</a>
         </p>
+        <p>
+          <a  routerLink="/favorits" class="btn btn-danger btn-block" target="_blank" (click)="addMovie()">add to favorits</a>
+      </p>
     </div>
     <div class="col-md-8">
         <h2>{{movie.title}}

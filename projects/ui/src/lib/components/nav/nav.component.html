@@ -22,8 +22,12 @@
         <span class="example-spacer"></span>
 
         <button mat-button routerLink="/movies">Home</button>
+        <button mat-button routerLink="/favorits">Favorits</button>
         <button mat-button routerLink="/filter">Search by keywords</button>
         <button mat-button routerLink="/search">Discover</button>
+
+        <button mat-button (click)="logout()" routerLink="/Login">Logout</button>
+
       <!--   <button mat-button routerLink="/login">Logowanie</button> -->
     </mat-toolbar-row>
 </mat-toolbar>
