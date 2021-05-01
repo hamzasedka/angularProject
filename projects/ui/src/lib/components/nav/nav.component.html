@@ -15,18 +15,23 @@
 </form>
 </mat-card>
 -->
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" id="navbar">
     <mat-toolbar-row>
-        <span routerLink="/movies">Movie viewer</span>
+        <span routerLink="/movies">MovieV</span>
 
         <span class="example-spacer"></span>
 
-        <button mat-button routerLink="/movies">Home</button>
+        <button mat-button routerLink="/movies"><i class="fas fa-home"></i>
+        </button>
+        <button mat-button routerLink="/contactUs">ContactUs</button>
         <button mat-button routerLink="/favorits">Favorits</button>
-        <button mat-button routerLink="/filter">Search by keywords</button>
+        <button mat-button routerLink="/filter"><i class="fas fa-search"></i>
+        </button>
         <button mat-button routerLink="/search">Discover</button>
 
-        <button mat-button (click)="logout()" routerLink="/Login">Logout</button>
+        <button mat-button (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+      </button>
 
       <!--   <button mat-button routerLink="/login">Logowanie</button> -->
     </mat-toolbar-row>

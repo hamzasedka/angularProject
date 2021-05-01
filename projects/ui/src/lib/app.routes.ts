@@ -1,3 +1,5 @@
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AuthGuard } from './../../../auth/src/lib/guard/auth.guard';
 import { favoritsComponent } from './components/favorits/favorits.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { Routes } from '@angular/router';
@@ -13,15 +15,16 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { FilterComponent } from './components/filter/filter.component';
 
 export const appRoutes: Routes = [
-    {path: 'homepage', component: HomePageComponent},
-    {path: 'movie/:id', component: MovieComponent},
-    {path: 'tv/:id', component: SerieComponent},
-    {path: 'actor/:id', component: ActorComponent},
-    {path: 'popular/series', component: PopularSeriesComponent},
-    {path: 'searchResults/:id/:genre', component: SearchResultComponent},
-    {path: 'search', component: SearchComponent},
-    {path: 'filter', component: FilterComponent},
-    {path: 'movies', component: MoviesComponent},
-    {path: 'favorits', component: favoritsComponent},
+    {path: 'homepage', component: HomePageComponent,canActivate: [AuthGuard]},
+    {path: 'movie/:id', component: MovieComponent,canActivate: [AuthGuard]},
+    {path: 'tv/:id', component: SerieComponent,canActivate: [AuthGuard]},
+    {path: 'actor/:id', component: ActorComponent,canActivate: [AuthGuard]},
+    {path: 'popular/series', component: PopularSeriesComponent,canActivate: [AuthGuard]},
+    {path: 'searchResults/:id/:genre', component: SearchResultComponent,canActivate: [AuthGuard]},
+    {path: 'search', component: SearchComponent,canActivate: [AuthGuard]},
+    {path: 'filter', component: FilterComponent,canActivate: [AuthGuard]},
+    {path: 'movies', component: MoviesComponent,canActivate: [AuthGuard]},
+    {path: 'favorits', component: favoritsComponent,canActivate: [AuthGuard]},
+    {path: 'contactUs', component: ContactUsComponent,canActivate: [AuthGuard]},
 
 ];

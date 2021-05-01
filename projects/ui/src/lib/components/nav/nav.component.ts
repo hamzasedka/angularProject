@@ -11,7 +11,7 @@ export class NavComponent implements OnInit {
   movies: Array<Object>;
 
   genres: Array<Object>;
-
+  user:any;
   constructor(private authService: AuthService) {
 
 
@@ -20,7 +20,10 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user=  JSON.parse(localStorage.getItem('user'));
+
   }
+
 logout(){
   this.authService.SignOut();
 }

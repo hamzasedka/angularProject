@@ -1,3 +1,4 @@
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { favoritsComponent } from './components/favorits/favorits.component';
 
 import { MoviesComponent } from './components/movies/movies.component';
@@ -42,9 +43,8 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     SerieComponent,
     UpcomingComponent,
     MoviesComponent,
-    favoritsComponent
-
-
+    favoritsComponent,
+    ContactUsComponent
 
   ],
   imports: [

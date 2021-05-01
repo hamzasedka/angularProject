@@ -1,3 +1,4 @@
+import { FooterComponent } from './../../projects/ui/src/lib/components/footer/footer.component';
 import { NavComponent } from './../../projects/ui/src/lib/components/nav/nav.component';
 
 import { MaterialModule } from './../../projects/ui/src/lib/material.module';
@@ -18,6 +19,7 @@ import { AuthModule } from 'projects/auth/src/public-api';
   declarations: [
     AppComponent,
     NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

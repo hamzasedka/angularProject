@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { ContactUs } from 'common/Model/ContactUs';
 
 
 @Injectable()
@@ -178,5 +179,15 @@ export class MoviesService {
       .collection("users/"+uid+"/movies")
       .where('id','==',id).get();
         doc.then(movies=>movies.forEach(movie=>movie.ref.delete()));
+      }
+
+      SendContactUs(contact:ContactUs){
+        let uid= JSON.parse(localStorage.getItem('user')).uid;
+        this.afs.collection("users/"+uid+"/contactUs").add(contact)
+        .then(()=>console.log("message send successfuy !!"))
+        .catch((error) => {
+          console.error("Error sneding message: ", error);
+          }
+        )
       }
 }

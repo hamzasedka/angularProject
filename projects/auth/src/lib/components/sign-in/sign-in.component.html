@@ -15,13 +15,13 @@
                 <p>No Account? <a href="http://localhost:4200/register-user">Sign up</a></p>
             </div>
             <div class="box">
-                <form class="form">
+                <div class="form">
                     <input type="text" class="username" placeholder="Username" #userName required>
                     <input type="password" class="password" placeholder="Password" #userPassword required>
-                    <input type="submit" class="button" value="Login" (click)="authService.SignIn(userName.value, userPassword.value)">
-                    <div class="col-md-12"> <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline" style="color: white; margin-left:20px;"  (click)="authService.GoogleAuth()" href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Using Google</a> </div>
+                    <input type="submit" class="button" value="Login"  (click)="authService.SignIn(userName.value, userPassword.value)">
+                    <div class="col-md-12"> <a class="btn btn-lg btn-google btn-block text-uppercase btn-outline" style="color: white; "  (click)="authService.GoogleAuth()" href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Using Google</a> </div>
 
-                  </form>
+                  </div>
             </div>
         </div>
     </main>

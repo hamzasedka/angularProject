@@ -36,9 +36,8 @@ export class AuthService {
 
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['http://localhost:4200/dashboard']);
-        });
+
+          location.replace("http://localhost:4200/homepage");
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
@@ -54,6 +53,7 @@ export class AuthService {
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        location.replace("http://localhost:4200/verify-email-address")
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -106,6 +106,7 @@ export class AuthService {
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+
     const userData: User = {
       uid: user.uid,
       email: user.email,
@@ -123,6 +124,7 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
+      location.reload();
     })
   }
 }
