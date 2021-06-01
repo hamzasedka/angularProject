@@ -1,3 +1,4 @@
+import { ProfileComponent } from './components/profile/profile.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { favoritsComponent } from './components/favorits/favorits.component';
 
@@ -44,8 +45,8 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     UpcomingComponent,
     MoviesComponent,
     favoritsComponent,
-    ContactUsComponent
-
+    ContactUsComponent,
+    ProfileComponent
   ],
   imports: [
     HttpClientModule,

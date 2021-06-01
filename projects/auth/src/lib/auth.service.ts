@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from "@angular/router";
 import { User } from 'common/Model/User';
 import firebase from 'firebase'
@@ -12,6 +13,7 @@ export class AuthService {
   userData: any; // Save logged in user data
 
   constructor(
+    private afStorage:AngularFireStorage,
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
@@ -126,5 +128,31 @@ export class AuthService {
       this.router.navigate(['sign-in']);
       location.reload();
     })
+  }
+  UpdateUserInfo(user:any){
+    let uid= JSON.parse(localStorage.getItem('user')).uid;
+    this.afs.collection("users").doc(uid).update(user)
+    .then(()=>console.log("user updated successfuy !!"))
+    .catch((error) => {
+      console.error("Error updating message: ", error);
+      }
+    )
+  }
+  getUserInfo(){
+    let uid= JSON.parse(localStorage.getItem('user')).uid;
+
+    let user= this.afs.collection("users").doc(uid).valueChanges();
+    return user;
+  }
+  uploadImage(path:string){
+    let uid= JSON.parse(localStorage.getItem('user')).uid;
+    this.afStorage.storage.ref().child("image"+uid).delete();
+    this.afStorage.upload("/image"+uid,path);
+  }
+  retriveImageFromFirebase(){
+    let uid= JSON.parse(localStorage.getItem('user')).uid;
+     return this.afStorage.storage.ref().child(("image"+uid))
+    .getDownloadURL();
+
   }
 }

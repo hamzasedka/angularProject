@@ -1,3 +1,4 @@
+import { ProfileComponent } from './components/profile/profile.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AuthGuard } from './../../../auth/src/lib/guard/auth.guard';
 import { favoritsComponent } from './components/favorits/favorits.component';
@@ -26,5 +27,6 @@ export const appRoutes: Routes = [
     {path: 'movies', component: MoviesComponent,canActivate: [AuthGuard]},
     {path: 'favorits', component: favoritsComponent,canActivate: [AuthGuard]},
     {path: 'contactUs', component: ContactUsComponent,canActivate: [AuthGuard]},
+    {path: 'edit-profile', component: ProfileComponent,canActivate: [AuthGuard]},
 
 ];

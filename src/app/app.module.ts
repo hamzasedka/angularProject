@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment.prod';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from 'projects/auth/src/public-api';
-
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { AuthModule } from 'projects/auth/src/public-api';
     MaterialModule,
     FormsModule,
     AuthModule,
-
+    AngularFireStorageModule
 
   ],
   providers: [],
