@@ -21,7 +21,7 @@ import { NgModule } from '@angular/core';
 import { UiComponent } from './ui.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
@@ -54,6 +54,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatCarouselModule.forRoot(),
     NgbModule,
     IvyCarouselModule

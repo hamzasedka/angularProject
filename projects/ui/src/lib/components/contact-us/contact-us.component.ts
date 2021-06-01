@@ -2,6 +2,7 @@ import { MoviesService } from './../../movies.service';
 import { Component, OnInit } from '@angular/core';
 import { ContactUs } from 'common/Model/ContactUs';
 import { THIS_EXPR, ThrowStmt } from '@angular/compiler/src/output/output_ast';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'lib-contact-us',
@@ -10,23 +11,21 @@ import { THIS_EXPR, ThrowStmt } from '@angular/compiler/src/output/output_ast';
 })
 export class ContactUsComponent implements OnInit {
   contactUs:ContactUs;
-  name:string;
-  subject:string;
-  message:string;
+  form:FormGroup;
 
-  constructor(private _moiveServices:MoviesService) { }
+  constructor(private _moiveServices:MoviesService,
+    private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
-
+    this.form=this.formBuilder.group({
+      name:[""],
+      subject:[""],
+      message:[""]
+    });
   }
   send(){
 
-    this.contactUs.name=this.name;
-    this.contactUs.subject=this.subject;
-    this.contactUs.message=this.message;
-console.log(this.contactUs.name);
-
-    this._moiveServices.SendContactUs(this.contactUs);
+    this._moiveServices.SendContactUs(this.form.value);
 
   }
 }

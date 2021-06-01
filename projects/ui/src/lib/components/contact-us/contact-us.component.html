@@ -23,22 +23,22 @@
 				      		<div id="form-message-success" class="mb-4">
 				            Your message was sent, thank you!
 				      		</div>
-									<form method="POST" id="contactForm" name="contactForm">
+									<form method="POST" [formGroup]="form" id="contactForm" name="contactForm">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" class="form-control" name="name" id="name" placeholder="Name" [(ngModel)]="name">
+													<input type="text" class="form-control" name="name" id="name" placeholder="Name" formControlName="name">
 												</div>
 											</div>
 
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" [(ngModel)]="subject">
+													<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" formControlName="subject">
                         </div>
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Message" [(ngModel)]="message"></textarea>
+													<textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Message" formControlName="message"></textarea>
 												</div>
 											</div>
 											<div class="col-md-12">
